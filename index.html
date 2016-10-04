@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<title>CLAB UI Components | Demo page</title>
+
+	<!-- Pattern Library CSS -->
+	<link rel="stylesheet" href="bower_components/clab-ui-components/_assets/css/contactlab-pattern.css">
+
+	<!-- Polyfills -->
+	<script src="bower_components/lodash/lodash.js"></script>
+	<script src="bower_components/fetch/fetch.js"></script>
+	<script src="bower_components/es6-promise/es6-promise.min.js"></script>
+	<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/ng-polymer-elements/ng-polymer-elements.min.js"></script>
+
+	<!-- Components -->
+	<link rel="import" href="bower_components/clab-ui-components/clab-ui-components.html">
+  <link rel="import" href="bower_components/clab-ui-components/button/button.html">
+  <link rel="import" href="bower_components/clab-ui-components/label-badge/label-badge.html">
+
+
+</head>
+<body>
+  <script>
+
+    var app = angular.module("myShoppingList", ['ng-polymer-elements']);
+    app.controller("myCtrl", function($scope) {
+      $scope.buttonLabel = 'Click me';
+
+      $scope.buttonAction = function() {
+         alert('Button clicked');
+      };
+
+    });
+
+  </script>
+
+<div ng-app="myShoppingList" ng-controller="myCtrl">
+  <button-clab ng-click="buttonAction()">{{buttonLabel}}</button-clab>
+  <input ng-model="buttonLabel"></input>
+</div>
+
+</body>
+</html>
