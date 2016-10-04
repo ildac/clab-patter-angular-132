@@ -6,7 +6,7 @@ Prerequisites
 nodejs and bower
 
 - sudo apt-get install nodejs
-- npm install --global bower
+- npm install -g bower
 
 Setup
 -----
