@@ -33,6 +33,8 @@
 
       $scope.buttonAction = function() {
          alert('Button clicked');
+				 $scope.buttonLabel="clicked"
+				 $scope.buttonText="Che bel model reactive"
       };
 
     });
@@ -41,7 +43,7 @@
 
 <div ng-app="myShoppingList" ng-controller="myCtrl">
   <button-clab ng-click="buttonAction()">{{buttonLabel}}</button-clab>
-  <input ng-model="buttonLabel"></input>
+  <input ng-model="buttonLabel">{{buttonText}}</input>
 </div>
 
 </body>
