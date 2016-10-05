@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-	<title>CLAB UI Components | Demo page</title>
+	<title>Techincaleader Demo| Polymer - Angular</title>
 
 	<!-- Pattern Library CSS -->
 	<link rel="stylesheet" href="bower_components/clab-ui-components/_assets/css/contactlab-pattern.css">
@@ -14,37 +14,64 @@
 	<script src="bower_components/es6-promise/es6-promise.min.js"></script>
 	<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
+	<!-- Angular -->
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/ng-polymer-elements/ng-polymer-elements.min.js"></script>
 
 	<!-- Components -->
 	<link rel="import" href="bower_components/clab-ui-components/clab-ui-components.html">
-  <link rel="import" href="bower_components/clab-ui-components/button/button.html">
-  <link rel="import" href="bower_components/clab-ui-components/label-badge/label-badge.html">
 
 
 </head>
 <body>
   <script>
 
-    var app = angular.module("myShoppingList", ['ng-polymer-elements']);
+    var app = angular.module("pattern-module", ['ng-polymer-elements']).constant('$ngPolymerMappings', {
+		  groupClab: {
+		    ngModel: function property(element) {
+						console.log("ciao")
+            return 'value';
+        }
+				// ngChange: '=change'
+		  }
+		});
+
     app.controller("myCtrl", function($scope) {
       $scope.buttonLabel = 'Click me';
+			$scope.number = 2
 
       $scope.buttonAction = function() {
-         alert('Button clicked');
+				 console.log($scope.number);
+				 $scope.number = 1;
 				 $scope.buttonLabel="clicked"
 				 $scope.buttonText="Che bel model reactive"
       };
 
     });
 
+
   </script>
 
-<div ng-app="myShoppingList" ng-controller="myCtrl">
-  <button-clab ng-click="buttonAction()">{{buttonLabel}}</button-clab>
-  <input ng-model="buttonLabel">{{buttonText}}</input>
-</div>
+	<div ng-app="pattern-module" ng-controller="myCtrl">
+
+	  <button-clab ng-click="buttonAction()">{{buttonLabel}}</button-clab>
+		<br />
+		<br />
+		<input ng-model="buttonLabel">{{buttonText}}</input>
+		<br />
+		<br />
+
+		<input type="number" ng-model="number" min="0" max="5"/>
+		<br />
+		<br />
+
+		<group-clab type="info" ng-model="number">
+		  <button-clab>Left</button-clab>
+		  <button-clab>Middle</button-clab>
+		  <button-clab>Right</button-clab>
+		</group-clab>
+
+	</div>
 
 </body>
 </html>
