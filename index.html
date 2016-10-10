@@ -4,7 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	<title>Techincaleader Demo| Polymer - Angular</title>
-
+	<script>
+	window.addEventListener('WebComponentsReady ', function() {
+angular.bootstrap(wrap(document), ['ng-polymer-elements-example']);
+});
+	</script>
 	<!-- Pattern Library CSS -->
 	<link rel="stylesheet" href="bower_components/clab-ui-components/_assets/css/contactlab-pattern.css">
 
@@ -14,12 +18,13 @@
 	<script src="bower_components/es6-promise/es6-promise.min.js"></script>
 	<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
+	<link rel="import" href="bower_components/clab-ui-components/clab-ui-components.html">
+
 	<!-- Angular -->
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/ng-polymer-elements/ng-polymer-elements.min.js"></script>
 
 	<!-- Components -->
-	<link rel="import" href="bower_components/clab-ui-components/clab-ui-components.html">
 
 
 </head>
@@ -32,7 +37,6 @@
 						console.log("ciao")
             return 'value';
         }
-				// ngChange: '=change'
 		  }
 		});
 
